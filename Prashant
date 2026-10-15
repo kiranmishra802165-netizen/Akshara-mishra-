@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Special Surprise ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;display:grid;place-items:center;
+ background:radial-gradient(circle,#332516,#050505 75%);
+ color:#fff0c5;font-family:Georgia,serif;text-align:center;
+ padding:18px;overflow-x:hidden
+}
+.card{
+ width:100%;max-width:440px;min-height:540px;padding:35px 22px;
+ border:1px solid #d9b45d;border-radius:25px;
+ background:#100e0df2;box-shadow:0 0 35px #b78b3933;
+ display:flex;flex-direction:column;align-items:center;
+ justify-content:center
+}
+h1{color:#f3d78b;font-size:36px}
+p{line-height:1.9;font-size:17px}
+.gold{color:#e9c66f}
+button{
+ border:1px solid #f3d78b;border-radius:30px;padding:13px 22px;
+ background:linear-gradient(120deg,#ffedb2,#c69b42);
+ color:#1b1205;font-weight:bold;margin:10px;cursor:pointer
+}
+.gift{font-size:95px;background:none;border:0;animation:float 2s infinite}
+.cake{font-size:85px}
+.scene{animation:appear .7s ease}
+.hidden{display:none}
+@keyframes float{50%{transform:translateY(-10px)}}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.heart{position:fixed;bottom:-30px;animation:rise 4s linear forwards;pointer-events:none}
+@keyframes rise{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+</style>
+</head>
+<body>
+<main class="card">
+
+<section class="scene" id="s0">
+ <p class="gold">✨ A PRIVATE LITTLE SURPRISE ✨</p>
+ <h1>Something Special<br>For You</h1>
+ <p>Someone has a little surprise waiting just for you...</p>
+ <button class="gift" onclick="go(1)">🎁</button>
+ <p class="gold">Tap the gift to open it ❤️</p>
+ <button onclick="go(1)">OPEN YOUR SURPRISE</button>
+</section>
+
+<section class="scene hidden" id="s1">
+ <p class="gold">SURPRISE UNLOCKED!</p>
+ <div class="cake">🎂</div>
+ <h1>Make A Wish!</h1>
+ <p>May your life be filled with happiness, success,
+beautiful memories and endless reasons to smile. ✨</p>
+ <button onclick="go(2)">A SHAYARI FOR YOU 💌</button>
+</section>
+
+<section class="scene hidden" id="s2">
+ <p class="gold">WORDS FROM THE HEART</p>
+ <h1>A Little Shayari</h1>
+ <p><i>
+ Aapki zindagi khushiyon se sajti rahe,<br>
+ Har dua aapke haq mein badalti rahe.<br>
+ Muskurahat kabhi kam na ho aapki,<br>
+ Har subah nayi umeed lekar aati rahe.
+ </i></p>
+ <button onclick="go(3)">YOUR BIRTHDAY WISH 🎉</button>
+</section>
+
+<section class="scene hidden" id="s3">
+ <p class="gold">TODAY IS YOUR DAY</p>
+ <h1>Happy Birthday! 🎂</h1>
+ <p>May every new day bring you closer to your dreams.
+May you always find peace in your heart,
+strength in difficult times and joy in little things.</p>
+ <p class="gold">You deserve a beautiful year ahead. ❤️</p>
+ <button onclick="go(4)">WHO IS THIS SURPRISE FOR?</button>
+</section>
+
+<section class="scene hidden" id="s4">
+ <p class="gold">THE SPECIAL PERSON</p>
+ <p>Today, this little surprise belongs to...</p>
+ <h1>Prashant<br>Tripathi ❤️</h1>
+ <p>Wishing you countless smiles, beautiful moments
+and a year full of wonderful surprises.</p>
+ <button onclick="go(5)">ONE LAST SECRET 💌</button>
+</section>
+
+<section class="scene hidden" id="s5">
+ <p class="gold">A LITTLE MESSAGE FOR YOU</p>
+ <div class="cake">💌</div>
+ <h1>Dear Prashant,</h1>
+ <p>May you always keep smiling and keep chasing your dreams.
+May life give you beautiful memories, genuine happiness
+and people who appreciate the person you are.</p>
+ <p><i>Some wishes are small in words, but full of warmth.</i></p>
+ <button onclick="go(6)">FINAL SURPRISE ❤️</button>
+</section>
+
+<section class="scene hidden" id="s6">
+ <div class="cake">🎂🎉💛</div>
+ <p class="gold">MADE ESPECIALLY FOR YOU</p>
+ <h1>Happy Birthday,<br>Prashant!</h1>
+ <p>May your smile shine brighter than every candle
+and your dreams become beautiful memories.</p>
+ <p class="gold"><i>With love & best wishes,<br>Akshara Mishra ❤️</i></p>
+ <button onclick="celebrate()">MORE HEARTS! 💖</button>
+ <button onclick="go(0)">REPLAY SURPRISE ↻</button>
+</section>
+
+</main>
+<script>
+let current=0;
+function go(n){
+ document.getElementById("s"+current).classList.add("hidden");
+ current=n;
+ document.getElementById("s"+current).classList.remove("hidden");
+ if(n===1||n===4||n===6)celebrate();
+ window.scrollTo(0,0);
+}
+function celebrate(){
+ const symbols=["❤️","💛","💖","✨","♥","🎉"];
+ for(let i=0;i<35;i++){
+  const h=document.createElement("span");
+  h.className="heart";
+  h.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(18+Math.random()*18)+"px";
+  h.style.animationDuration=(3+Math.random()*3)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6500);
+ }
+}
+</script>
+</body>
+</html>
