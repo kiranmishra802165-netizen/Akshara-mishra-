@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Prashant ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Georgia,serif;color:#fff;background:radial-gradient(circle at top,#8f1637,#23000e 75%);padding:20px}
+.card{max-width:440px;width:100%;padding:30px 22px;border:1px solid #e8bd76;border-radius:24px;background:#4b071d99;box-shadow:0 0 35px #e8bd7640}
+h1{color:#ffd995;font-size:32px}
+.gift{font-size:100px;cursor:pointer;animation:bob 1.5s infinite}
+button{background:#f5c875;color:#4b071d;border:0;border-radius:30px;padding:13px 22px;font-size:16px;font-weight:bold;cursor:pointer}
+#surprise{display:none;line-height:1.8}
+.gold{color:#ffd995}
+@keyframes bob{50%{transform:translateY(-9px)}}
+.heart{position:fixed;top:-20px;animation:fall 5s linear forwards;pointer-events:none}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+<main class="card">
+<div class="gold">✨ A LITTLE SURPRISE FOR YOU ✨</div>
+<h1>Someone Special… ❤️</h1>
+<p>There is a little gift waiting just for you.</p>
+<div class="gift" onclick="openGift()" role="button" aria-label="Open birthday gift">🎁</div>
+<button onclick="openGift()">OPEN YOUR GIFT 💌</button>
+<section id="surprise">
+<h1>Happy Birthday! 🎂</h1>
+<h2 class="gold">Prashant Tripathi ❤️</h2>
+<p>मेरी नज़रों में आपकी तस्वीर कुछ यूँ बसी है,<br>लफ़्ज़ों से ना हो बयाँ, वैसी तक़दीर मिली है।</p>
+<p>आज के दिन खुदा ऐसी नेमत से नवाज़े आपको,<br>दुनिया देखे और बोले—हाय, क्या तक़दीर मिली है आपको। ✨</p>
+<p>May your life be filled with happiness, success, peace and beautiful memories. Keep smiling and may all your dreams come true! 💖</p>
+<p class="gold">With lots of wishes,<br><strong>Akshara Mishra 💗</strong></p>
+<p>One last surprise… You deserve all the happiness in the world! 🌹</p>
+<div style="font-size:35px">🎂 🎉 💝 🥳</div>
+</section>
+</main>
+<script>
+function openGift(){
+document.getElementById('surprise').style.display='block';
+document.querySelector('.gift').textContent='💝';
+document.querySelector('button').style.display='none';
+for(let i=0;i<35;i++){
+let h=document.createElement('span');h.className='heart';h.textContent=['❤️','💖','✨','💕'][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+'vw';h.style.animationDelay=Math.random()*2+'s';h.style.fontSize=(16+Math.random()*20)+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),7000);
+}
+}
+</script>
+</body>
+  </html>
